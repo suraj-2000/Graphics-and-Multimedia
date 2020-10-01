@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+#include<graphics.h>
+
+using namespace std;
+
+int main()
+{
+	int xc,yc,r;
+	
+	cout<<"Enter center coordinates of Circle\n";
+	cout<<"Enter x and y\n";
+	
+	cin>>xc>>yc;
+	
+	cout<<"Enter radius of Circle\n";
+	cin>>r;
+	
+	int x = 0, y = r;
+	int p = 1-r;
+	
+	int gdriver = DETECT,gmode;
+	initgraph(&gdriver,&gmode,NULL);
+	
+	do{
+		putpixel(xc+x,yc+y,RED);
+		putpixel(xc+x,yc-y,RED);
+		
+		putpixel(xc-x,yc+y,RED);
+		putpixel(xc-x,yc-y,RED);
+		
+		putpixel(xc+y,yc+x,RED);
+		putpixel(xc+y,yc-x,RED);
+		
+		putpixel(xc-y,yc+x,RED);
+		putpixel(xc-y,yc-x,RED);
+		if(p<0){
+			x = x+1;
+			y = y;
+			p = p+2*x+1;
+			
+		}
+		else{
+			x = x+1;
+			y = y-1;
+			p = p+2*(x-y)+1;
+		}
+	}while(x<=y); 
+	
+	delay(10000);
+}
